@@ -113,7 +113,7 @@
                     </docletArtifact>
                 </configuration>
             </plugin>
-			    <finalName>mon-app</finalName>
 		</plugins>
+		  <finalName>mon-app</finalName>
 	</build>
 </project>
