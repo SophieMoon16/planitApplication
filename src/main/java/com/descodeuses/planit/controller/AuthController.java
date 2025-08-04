@@ -44,9 +44,4 @@ public class AuthController {
         return ResponseEntity.ok(new AuthResponse(token));
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody AuthRequest request) {
-    userService.saveUser(request.getUsername(), request.getPassword());
-    return ResponseEntity.ok("Utilisateur enregistré");
-}
 }
