@@ -43,4 +43,10 @@ public class AuthController {
         // Retourne le token dans la réponse
         return ResponseEntity.ok(new AuthResponse(token));
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<String> register(@RequestBody AuthRequest request) {
+    userService.saveUser(request.getUsername(), request.getPassword());
+    return ResponseEntity.ok("Utilisateur enregistré");
+}
 }
