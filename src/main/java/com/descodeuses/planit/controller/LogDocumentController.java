@@ -19,7 +19,7 @@ private LogDocumentService logService;
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request){
         this.logService.addLog("login called");
 
-    AuthResponse response = new AuthResponse("login successful")
+    AuthResponse response = new AuthResponse("login successful");
     response.setToken("dummy-token"); // ici, un token fictif pour l'exemple
 
     return ResponseEntity.ok(response);  // <- on retourne bien un ResponseEntity
