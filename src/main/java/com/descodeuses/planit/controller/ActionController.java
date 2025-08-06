@@ -11,7 +11,7 @@ import com.descodeuses.planit.dto.ActionDTO;
 import com.descodeuses.planit.service.ActionService;
 
 @RestController
-@RequestMapping("/api/actions") // Note : nom pluriel cohérent
+@RequestMapping("/api/action") // Note : nom pluriel cohérent
 @CrossOrigin(origins = "*") // Facultatif si tu veux exposer l'API à tous les clients
 public class ActionController {
 
