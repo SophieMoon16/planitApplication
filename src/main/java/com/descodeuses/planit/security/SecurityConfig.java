@@ -39,11 +39,13 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(corsConfigurationSource))
+            .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
+            /* 
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/action/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/action/**").hasAnyRole("USER", "ADMIN")
-                .anyRequest().authenticated())
+                .anyRequest().authenticated())*/
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
             
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
