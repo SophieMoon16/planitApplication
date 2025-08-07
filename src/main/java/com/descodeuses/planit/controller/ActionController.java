@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import com.descodeuses.planit.dto.ActionDTO;
 import com.descodeuses.planit.service.ActionService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/action") // Note : nom pluriel cohérent
@@ -22,7 +25,11 @@ public class ActionController {
         this.actionService = actionService;
     }
 
-    @GetMapping("")
+    @GetMapping
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
     public ResponseEntity<List<ActionDTO>> getAllActions() {
         List<ActionDTO> actions = actionService.getAllActions();
         return new ResponseEntity<>(actions, HttpStatus.OK);
