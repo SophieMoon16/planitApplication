@@ -39,7 +39,7 @@ public class ActionService {
      * List<Action> actions =actionRepository.findByUtilisateurId(user.getId());
      */
 
-    UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    /*UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();*/
 
     public List<ActionDTO> getAllActions() {
         List<ActionEntity> actions = actionRepository.findAll(Sort.by(Sort.Direction.DESC, "dueDate"));
