@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,6 +30,16 @@ public class ActionService {
     public ActionService(ActionRepository actionRepository) {
         this.actionRepository = actionRepository;
     }
+
+    /* public List<ActionDTO> getAllActions()
+     * {
+     * UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+     * DCUser user =userRepository.findByUsername (username)
+     * .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+     * List<Action> actions =actionRepository.findByUtilisateurId(user.getId());
+     */
+
+    UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
     public List<ActionDTO> getAllActions() {
         List<ActionEntity> actions = actionRepository.findAll(Sort.by(Sort.Direction.DESC, "dueDate"));

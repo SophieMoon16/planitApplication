@@ -22,7 +22,7 @@ public class ActionController {
         this.actionService = actionService;
     }
 
-    @GetMapping(value = "")
+    @GetMapping("/")
     public ResponseEntity<List<ActionDTO>> getAllActions() {
         List<ActionDTO> actions = actionService.getAllActions();
         return new ResponseEntity<>(actions, HttpStatus.OK);
